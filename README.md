@@ -17,6 +17,10 @@ Trained_model1.pkl
 
 model_list.dat contains the list of all models
 
+Setup:
+
+Please change the UPLOAD_FOLDER variable in line 15(app.py)
+
 Requirements:
 Python
 Flask==1.1.2
