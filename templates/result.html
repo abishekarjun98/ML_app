@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<style>
+.img
+{
+	margin-top: 40px;
+	width: 350px;
+	height: 350px;
+	margin-left: 550px;
+}
+
+  body, html {
+  height: 100%;
+}
+
+.bg {
+
+  background-image: url('./static/bg2.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+
+
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #00E506">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+  
+      <li class="nav-item">
+      <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('performance')}}"> Available Models <span class="sr-only">(current)</span></a>
+    </li>
+        
+    </ul>
+  </div>
+</nav>
+
+
+
+</head>
+
+<div class="bg" >
+<body>
+
+		{% if result == 0 %}
+	<img src="./static/setosa.png" class="img" data-aos="fade-up" data-aos-duration="2000">
+	{% endif %}
+
+	{% if result ==1 %}
+	<img src="./static/versicolor.png" class="img" data-aos="fade-up" data-aos-duration="2000">
+	{% endif %}
+
+	{% if result == 2 %}
+	<img src="./static/virginica.png" class="img" data-aos="fade-up" data-aos-duration="2000">
+	{% endif %}
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>	
+</body>
+</div>
+</html>

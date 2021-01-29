@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="stylesheet" href="./static/style.css" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<!--<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">-->
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #00E506">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+  
+      <li class="nav-item">
+      <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('performance')}}"> Available Models <span class="sr-only">(current)</span></a>
+    </li>
+
+
+        
+    </ul>
+  </div>
+</nav>
+</head>
+<div class="bg">
+<body>
+<center><h3 style="margin-left:-100px;">Iris Classification</h4></center>
+<div id="add_data" data-aos="fade-down" data-aos-duration="2000">
+	<h4> Enter Data To Train </h4>
+<form method="post" action="/add_data">
+		<input type="text" class="box"name="sepal_length_new" placeholder="sepal length">
+		<br>
+	
+		<input type="text" class="box"name="sepal_width_new" placeholder="sepal width">
+	
+		<br>
+		<input type="text" class="box"name="petal_length_new" placeholder="petal length">
+		
+		<br>
+		<input type="text" class="box"name="petal_width_new" placeholder="petal width">
+		
+		<br>
+		<select id="species" name="species">
+  			<option value="0">Setosa</option>
+  			<option value="1">Versicolor</option>
+  			<option value="2">Virginica</option>
+		</select>
+		<br>
+		<input type="submit" style="margin-top: 20px;margin-left: 40px;" value="Add Data" class="btn btn-primary">
+</form>
+</div>
+
+<div id="save_form" data-aos="fade-up"data-aos-duration="2000">
+<h4 style="margin-left: 100px;">Save Model</h4>
+	
+<form action="/saving_model" method="post">
+	<input type="text" name="model_name"  style="width:230px;margin-bottom:12px;" id="i_box"placeholder="Give a name for your model">
+
+	<label for="algo_name">Choose an Algorithm</label>
+	<select name="algo_name" id="algo_name">
+		<option value="Log_reg">Logistic Regession</option>
+		<option value="SVM"> SVM </option>
+	</select>
+	<br>
+	<input type="submit" style="margin-top: 12px;margin-left: 63px;" value="Train and Save the Model" class="btn btn-warning">
+</form>
+</div>
+
+
+
+<div id="predict_form" data-aos="fade-down" data-aos-duration="2000">
+	<h4> Enter Values to Predict</h4>
+	<form method="post" action="/simple_predict">
+		<input type="text" class="box" name="sepal_length" placeholder="sepal length">
+		<br>
+	
+		<input type="text" class="box"name="sepal_width" placeholder="sepal width">
+		<br>
+	
+		<input type="text" class="box"name="petal_length" placeholder="petal length">
+		<br>
+	
+		<input type="text" class="box"name="petal_width" placeholder="petal width">
+		<br>
+		<label for="model">Choose Model</label>
+		<select name="model">
+			{% for model in models %}
+			<option value="{{model}}"> {{model}} </option>
+			{% endfor %}
+		</select>
+		<br>
+		<input type="submit" style="margin-top: 10px;margin-left: 80px; " value="Predict" class="btn btn-success">
+	</form>
+</div>
+
+
+<!--<a id="p_btn" data-aos="fade-right" data-aos-duration="2000" href="{{ url_for('performance')}}" type="button" class="btn btn-light">Check Perfomances</a>-->
+
+<br>
+
+<div id="file_form" data-aos="fade-up" data-aos-duration="2000">
+	<h5>Or Upload</h5>
+<form method="POST" enctype=multipart/form-data action="{{ url_for('upload') }}">
+    <input type=file name=file>
+    <input type="submit" style="margin-top: 10px;margin-left: 30px;" value="Upload Data" class="btn btn-danger">
+</form>
+</div>
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</div>
+</html>
