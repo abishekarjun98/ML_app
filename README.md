@@ -7,6 +7,8 @@ A website that predicts the Type of Iris flower based on the dimensions entered 
 
 2.In the static folder add all the css elements and images to work on webpage.
 
+3.Change the UPLOAD_FOLDER variable in line 15(app.py)
+
 Complete explanation of the code : https://abivenkatesh16.medium.com/iris-classification-flask-app-2b4880ece2fb
 
 Pre-Trained Models:
@@ -17,9 +19,7 @@ Trained_model1.pkl
 
 model_list.dat contains the list of all models
 
-Setup:
 
-Please change the UPLOAD_FOLDER variable in line 15(app.py)
 
 Requirements:
 Python
