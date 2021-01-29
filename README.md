@@ -9,8 +9,15 @@ A website that predicts the Type of Iris flower based on the dimensions entered 
 
 Complete explanation of the code : https://abivenkatesh16.medium.com/iris-classification-flask-app-2b4880ece2fb
 
-Requirements:
+Pre-Trained Models:
 
+Sample.pkl
+Trained_model1.pkl
+
+
+model_list.dat contains the list of all models
+
+Requirements:
 Python
 Flask==1.1.2
 Jinja2==2.11.2
