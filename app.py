@@ -1,13 +1,9 @@
-from __future__ import print_function
 from flask import Flask,render_template,request, url_for, redirect,flash
 from werkzeug.utils import secure_filename
 import numpy as np
 import pandas as pd
 import pickle
 import os
-
-import sys
-
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
@@ -32,9 +28,6 @@ petal_length_new=[]
 petal_width_new=[]
 species_new=[]
 
-
-#model_list=['sample']
-#pickle.dump(model_list,open("model_list.dat","wb"))
 model_list=pickle.load(open('model_list.dat','rb'))
 
 df=pd.read_csv("Train.csv")
@@ -105,7 +98,6 @@ def add_data():
 	petal_length_new.append(request.form["petal_length_new"])
 	petal_width_new.append(request.form["petal_width_new"])
 	species_new.append(request.form["species"])
-	print(str(len(sepal_width_new))+"list", file=sys.stderr)
 	return redirect(url_for('home'))
 
 
@@ -128,9 +120,6 @@ def saving_model():
 	
 	x_new = pd.DataFrame({"sepal_length":sepal_length_new, "sepal_width":sepal_width_new,"petal_length":petal_length_new,"petal_width":petal_width_new}) 
 	x_updated=x_train.append(x_new,ignore_index=True)
-	
-
-	print(str((x_updated).shape), file=sys.stderr)
 
 	y_new=pd.DataFrame({"species":species_new})
 	y_new=y_new.astype('int')
