@@ -13,7 +13,7 @@ A website that predicts the Type of Iris flower based on the dimensions entered 
 
 Complete explanation of the code : https://abivenkatesh16.medium.com/iris-classification-flask-app-2b4880ece2fb
 
-Hosted at: https://serene-hamlet-52583.herokuapp.com (File Upload function is not implemented)
+Hosted at: https://serene-hamlet-52583.herokuapp.com (Some features may not work)
 
 Pre-Trained Models:
 
