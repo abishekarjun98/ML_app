@@ -11,7 +11,7 @@ A website that predicts the Type of Iris flower based on the dimensions entered 
 
 4.Setup an virtual environment and activate the environment before running the app.
 
-Complete explanation of the code : https://abivenkatesh16.medium.com/iris-classification-flask-app-2b4880ece2fb
+Complete explanation of the code : https://abishekarjun.medium.com/iris-classification-flask-app-2b4880ece2fb
 
 
 
