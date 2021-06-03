@@ -24,12 +24,5 @@ Trained_model1.pkl
 model_list.dat contains the list of all models
 
 
-
-Requirements:
-Python
-Flask==1.1.2
-Jinja2==2.11.2
-Werkzeug==1.0.1
-Pandas 
-Numpy
-Sklearn
+![alt text](1.JPG)
+![alt text](2.JPG)
